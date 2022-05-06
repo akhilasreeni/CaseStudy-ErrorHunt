@@ -1,7 +1,7 @@
 const express = require('express'); 
 const path = require ('path'); 
 const cors = require('cors');
-//Imported body-parser package
+//ERROR#2 Imported body-parser package
 const bodyParser = require('body-parser');
 
 const nav= [
@@ -25,7 +25,7 @@ const nav= [
 
 const loginRouter = require('./src/routes/loginroute');
 const signupRouter = require('./src/routes/signuproute');
-//changed the router filename from homerouter.js to homeroute.js
+//Error#3 changed the router filename from homerouter.js to homeroute.js
 const homeRouter = require('./src/routes/homeroute');
 const booksRouter = require('./src/routes/booksroute');
 const authorsRouter = require('./src/routes/authorsroute');
@@ -39,8 +39,9 @@ app.set('view engine','ejs');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());
-app.use(express.static(path.join(__dirname , '/public'))); 
-
+app.use(express.static(path.join(__dirname , '/public')));
+//ERROR#7 Binding cors for resource sharing 
+app.use(cors())
 app.use('/login',loginRouter); 
 app.use('/signup',signupRouter); 
 app.use('/home',homeRouter); 
@@ -60,5 +61,6 @@ app.get('/',function(req,res){
 
 
 app.listen(5500,()=>{
-    console.log("Server Ready on 3000");
+    //ERROR#5 changed the port number from 3000 to 5500
+    console.log("Server Ready on 5500");//changed the port number from 3000 to 5500
 });
