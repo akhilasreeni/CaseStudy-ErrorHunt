@@ -1,6 +1,8 @@
 const express = require('express'); 
 const path = require ('path'); 
 const cors = require('cors');
+//Imported body-parser package
+const bodyParser = require('body-parser');
 
 const nav= [
     {
@@ -23,6 +25,7 @@ const nav= [
 
 const loginRouter = require('./src/routes/loginroute');
 const signupRouter = require('./src/routes/signuproute');
+//changed the router filename from homerouter.js to homeroute.js
 const homeRouter = require('./src/routes/homeroute');
 const booksRouter = require('./src/routes/booksroute');
 const authorsRouter = require('./src/routes/authorsroute');
@@ -56,6 +59,6 @@ app.get('/',function(req,res){
 
 
 
-app.listen(5000,()=>{
+app.listen(5500,()=>{
     console.log("Server Ready on 3000");
 });
