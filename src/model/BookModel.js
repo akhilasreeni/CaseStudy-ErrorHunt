@@ -5,7 +5,8 @@ mongoose.connect(MD_URI || 'mongodb://localhost:27017/Library',{
     useNewUrlparser: true,
     useUnifiedTopology: true
 });
-
+//Part#2 Point 9 delete update operation properly implemented
+mongoose.set("useFindAndModify", false);
 
 //mongoose.connection.on("connected",()=>{
 //    console.log("Connected");
